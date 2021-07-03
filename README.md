@@ -4,8 +4,8 @@
 
 ### Light Mode
 
-![](./assets/images/Screenshot_one.png)
+![](./assets/images/Screenshot_Light.png)
 
 ### Dark Mode
 
-![](./assets/images/Screenshot_two.png)
+![](./assets/images/Screenshot_Dark.png)
