@@ -1,4 +1,7 @@
-const hours = new Date().getHours();
-const isDayTime = hours > 6 && hours < 20;
+function isDayTime(params1, params2) {
+  const hours = new Date().getHours();
+  const isDayTime = hours > params1 && hours < params2;
+  return isDayTime;
+}
 export default isDayTime;
-// console.log(isDayTime);
+// console.log(new Date().getHours());

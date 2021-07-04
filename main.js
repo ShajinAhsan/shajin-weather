@@ -28,9 +28,13 @@ function getWeather(data) {
 }
 
 function displayWeather(data) {
-  !isDayTime
-    ? document.body.classList.add("dark-mode")
-    : document.body.classList.remove("dark-mode");
+  isDayTime(
+    unixTimeConverter(data.sys.sunrise).hour,
+    unixTimeConverter(data.sys.sunset).hour
+  )
+    ? document.body.classList.remove("dark-mode")
+    : document.body.classList.add("dark-mode");
+  console.log(unixTimeConverter(data.sys.sunset).hour);
   document.getElementById("weather").innerHTML = `
   <div class="header-area">
     <div class="city-name">
