@@ -82,7 +82,7 @@ a {
       font-weight: 300;
     }
     .temp-value {
-      font-size: clamp(2rem, 10vw, 6rem);
+      font-size: clamp(2.5rem, 10vw, 6rem);
     }
   }
   .extra-details {
@@ -139,10 +139,11 @@ a {
   }
   .extra-details {
     font-size: 1.2em !important;
+    left: initial !important;
+    transform: translateX(-45px);
     display: flex;
     width: 100%;
     justify-content: space-around;
-    transform: translate(-49px, -50px);
     .WindAndHumidity {
     }
     .SunsetAndSunrise {
@@ -153,5 +154,12 @@ a {
   }
   #footer {
     font-size: 10px;
+  }
+}
+@media screen and (max-width: 340px) {
+  .temp {
+    .weather-description {
+      font-size: 16px !important;
+    }
   }
 }

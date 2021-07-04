@@ -105,7 +105,7 @@ a {
 }
 
 #weather .temp .temp-value {
-  font-size: clamp(2rem, 10vw, 6rem);
+  font-size: clamp(2.5rem, 10vw, 6rem);
 }
 
 #weather .extra-details {
@@ -175,20 +175,27 @@ a {
   }
   .extra-details {
     font-size: 1.2em !important;
+    left: initial !important;
+    -webkit-transform: translateX(-45px);
+            transform: translateX(-45px);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     width: 100%;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    -webkit-transform: translate(-49px, -50px);
-            transform: translate(-49px, -50px);
   }
   .TempMinMax {
     display: none;
   }
   #footer {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .temp .weather-description {
+    font-size: 16px !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
