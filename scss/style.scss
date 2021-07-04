@@ -140,8 +140,9 @@ a {
   .extra-details {
     font-size: 1.2em !important;
     left: initial !important;
-    transform: translateX(-45px);
+    transform: translateX(-48px);
     display: flex;
+    bottom: 17% !important;
     width: 100%;
     justify-content: space-around;
     .WindAndHumidity {
