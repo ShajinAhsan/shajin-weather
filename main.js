@@ -8,16 +8,20 @@ import isDayTime from "./src/isDayTime";
 
 const time = new Date();
 document.addEventListener("load", getLocation());
+
 function getLocation() {
-  fetch(`https://ipinfo.io/?token=${API[1]}`)
-    .then((res) => res.json())
-    .then((data) => getWeather(data));
+  navigator.geolocation.getCurrentPosition((position) => {
+    const LatLon = {
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+    };
+    getWeather(LatLon);
+  });
 }
 
 function getWeather(data) {
-  const cityName = data?.city;
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API[0]}&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${API[0]}&units=metric`
   )
     .then((res) => res.json())
     .then((data1) => displayWeather(data1));
