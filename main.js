@@ -15,9 +15,9 @@ function getLocation() {
 }
 
 function getWeather(data) {
-  const coords = data?.loc?.split(",");
+  const cityName = data?.city;
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${coords[0]}&lon=${coords[1]}&appid=${API[0]}&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API[0]}&units=metric`
   )
     .then((res) => res.json())
     .then((data1) => displayWeather(data1));
