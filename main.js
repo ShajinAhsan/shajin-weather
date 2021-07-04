@@ -54,8 +54,11 @@ function displayWeather(data) {
     <div class="WindAndHumidity">
       <p class="wind-speed">
         <i class="uil uil-wind"></i>
-        ${Math.round(unitConverter.msTokmh(data.wind.speed))}
-        km/h
+        ${
+          Math.round(unitConverter.msTokmh(data.wind.speed)) !== 0
+            ? Math.round(unitConverter.msTokmh(data.wind.speed)) + " km/h"
+            : "?"
+        }
         <span class="info">-Wind Speed</span>
       </p>
       <p class="humidity">
