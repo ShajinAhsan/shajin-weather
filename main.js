@@ -19,7 +19,9 @@ function getLocation() {
       getWeather(LatLon);
     },
     (error) => {
-      document.querySelector("#app #error").innerHTML = error.message;
+      document.querySelector("#app #error").innerHTML = capitalizeWords(
+        error.message
+      );
     },
     { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
   );
