@@ -5,10 +5,13 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "sass": "node-sass -w scss/style.scss -o css"
+    "sass": "sass scss/style.scss css/style.css",
+    "sass:watch": "sass scss/style.scss css/style.css --watch"
   },
   "devDependencies": {
-    "vite": "^2.3.8",
-    "node-sass": "^6.0.1"
+    "vite": "^2.3.8"
+  },
+  "dependencies": {
+    "sass": "^1.35.2"
   }
 }

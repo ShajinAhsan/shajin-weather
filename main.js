@@ -10,13 +10,19 @@ const time = new Date();
 document.addEventListener("load", getLocation());
 
 function getLocation() {
-  navigator.geolocation.getCurrentPosition((position) => {
-    const LatLon = {
-      lat: position.coords.latitude,
-      lon: position.coords.longitude,
-    };
-    getWeather(LatLon);
-  });
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const LatLon = {
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      };
+      getWeather(LatLon);
+    },
+    (error) => {
+      document.querySelector("#app #error").innerHTML = error.message;
+    },
+    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+  );
 }
 
 function getWeather(data) {
