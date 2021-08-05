@@ -18,10 +18,16 @@ function getLocation() {
       };
       getWeather(LatLon);
     },
-    (error) => {
-      document.querySelector("#app #error").innerHTML = capitalizeWords(
-        error.message
-      );
+    () => {
+      fetch(`https://ipinfo.io/?token=${API[1]}`)
+        .then((res) => res.json())
+        .then((data) => {
+          const LatLon = {
+            lat: data.loc.split(",")[0],
+            lon: data.loc.split(",")[1],
+          };
+          getWeather(LatLon);
+        });
     },
     { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
   );
