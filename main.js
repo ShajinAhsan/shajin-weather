@@ -1,5 +1,5 @@
 import "./css/style.css";
-import API from "./src/api";
+import API from "./api";
 import unixTimeConverter from "./src/unixTimeConverter";
 import capitalizeWords from "./src/capitalizeWords";
 import unitConverter from "./src/unitConverter";
@@ -29,16 +29,20 @@ function getLocation() {
           getWeather(LatLon);
         });
     },
-    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+    { enableHighAccuracy: true, timeout: 3000, maximumAge: 0 }
   );
 }
 
-function getWeather(data) {
-  fetch(
+async function getWeather(data) {
+  const response = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${API[0]}&units=metric`
-  )
-    .then((res) => res.json())
-    .then((data1) => displayWeather(data1));
+  );
+  if (response.ok) {
+    const json = await response.json();
+    displayWeather(json);
+  } else {
+    document.getElementById("error").innerHTML = `<h1>${response.status}</h1>`;
+  }
 }
 
 function displayWeather(data) {
@@ -48,7 +52,6 @@ function displayWeather(data) {
   )
     ? document.body.classList.remove("dark-mode")
     : document.body.classList.add("dark-mode");
-  console.log(unixTimeConverter(data.sys.sunset).hour);
   document.getElementById("weather").innerHTML = `
   <div class="header-area">
     <div class="city-name">
