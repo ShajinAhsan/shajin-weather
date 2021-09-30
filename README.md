@@ -1,6 +1,6 @@
 ### Links
 
-- [Live Site URL](https://shajinahsan-weather-app.netlify.app/)
+- [Live Site URL](https://shajin-weather.netlify.app/)
 
 ### Light Mode
 
