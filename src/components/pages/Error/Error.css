@@ -1,0 +1,7 @@
+.text-shadow {
+  @apply filter drop-shadow-sm;
+}
+.text-stroke {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+}

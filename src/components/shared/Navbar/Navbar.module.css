@@ -1,0 +1,21 @@
+.usualStyle {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-gray-400;
+}
+.activeStyle_color {
+  color: rgba(52, 211, 153, 1) !important;
+}
+.activeStyle {
+  color: rgba(52, 211, 153, 1) !important;
+}
+.activeStyle:hover {
+  color: rgba(16, 185, 129, 1) !important;
+}
+.m_usualStyle {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-gray-400;
+}
+.m_activeStyle {
+  color: rgba(52, 211, 153, 1) !important;
+}
+.m_activeStyle:hover {
+  color: rgba(16, 185, 129, 1) !important;
+}

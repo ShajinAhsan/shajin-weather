@@ -1,0 +1,11 @@
+.divider__container {
+  @apply flex items-center;
+}
+
+.divider__border {
+  @apply border-b border-gray-300 w-full;
+}
+
+.divider__content {
+  padding: 0 10px 0 10px;
+}
