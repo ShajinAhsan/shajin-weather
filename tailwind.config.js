@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      gridColumnEnd: {
+        "-1": "-1",
+      },
       animation: {
         tilt: "tilt 10s infinite linear",
       },

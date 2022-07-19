@@ -11,12 +11,10 @@ import classes from "./Navbar.module.css";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useHistory();
-  const handleProfileClick = () => {
-    console.log("Profile clicked");
-  };
   const { photoURL, displayName, email, uid } = useRootContext().user;
   const { units } = useRootContext().userPref;
-  const { SignOut, AddDoc, GetDoc } = useRootContext();
+  const { SignOut, AddDoc } = useRootContext();
+  const pathname = navigate.location.pathname;
   const user = {
     name: displayName,
     email: email,
@@ -32,8 +30,8 @@ export default function Navbar() {
   const modalFunc = () => {
     SignOut();
   };
+
   const navigation = [
-    // { name: "Home", to: "/home" },
     { name: "Dashboard", to: "/dashboard" },
     { name: "Explore", to: "/explore" },
   ];
@@ -55,21 +53,18 @@ export default function Navbar() {
   const Units = [
     {
       name: "Standard",
-      // icon: IconOne,
       isSelected: function () {
         return this.name.toLowerCase() === units;
       },
     },
     {
       name: "Metric",
-      // icon: IconTwo,
       isSelected: function () {
         return this.name.toLowerCase() === units;
       },
     },
     {
       name: "Imperial",
-      // icon: IconThree,
       isSelected: function () {
         return this.name.toLowerCase() === units;
       },
@@ -136,10 +131,7 @@ export default function Navbar() {
                         <Menu as="div" className="ml-3 relative">
                           <div>
                             <div className="flex gap-x-3 justify-center items-center ">
-                              <Menu.Button
-                                onClick={handleProfileClick}
-                                className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm outline-none ring-2 ring-offset-2 ring-offset-gray-800 ring-white"
-                              >
+                              <Menu.Button className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm outline-none ring-2 ring-offset-2 ring-offset-gray-800 ring-white">
                                 <span className="sr-only">Open user menu</span>
                                 <img
                                   className="h-7 w-7 rounded-full"
@@ -169,75 +161,79 @@ export default function Navbar() {
                                     {userNavigation[0].name}
                                   </button>
                                 </Menu.Item>
-                                <Menu.Item className="block text-sm text-gray-700 hover:text-gray-800 hover:bg-gray-300 w-full text-left">
-                                  <Popover className="relative">
-                                    {({ open }) => (
-                                      <>
-                                        <Popover.Button
-                                          className={`
+                                {pathname === "/" ||
+                                pathname === "/home" ||
+                                pathname === "/dashboard" ? (
+                                  <Menu.Item className="block text-sm text-gray-700 hover:text-gray-800 hover:bg-gray-300 w-full text-left">
+                                    <Popover className="relative">
+                                      {({ open }) => (
+                                        <>
+                                          <Popover.Button
+                                            className={`
                 ${
                   open ? "" : "text-opacity-90"
                 } group w-full inline-flex items-center px-4 py-2`}
-                                        >
-                                          <span>Units</span>
-                                          <ChevronDownIcon
-                                            className={`${
-                                              open ? "" : "text-opacity-70"
-                                            }
+                                          >
+                                            <span>Units</span>
+                                            <ChevronDownIcon
+                                              className={`${
+                                                open ? "" : "text-opacity-70"
+                                              }
                   h-4 w-4 ml-1`}
-                                            aria-hidden="true"
-                                          />
-                                        </Popover.Button>
-                                        <Transition
-                                          as={Fragment}
-                                          enter="transition ease-out duration-200"
-                                          enterFrom="opacity-0 translate-y-1"
-                                          enterTo="opacity-100 translate-y-0"
-                                          leave="transition ease-in duration-150"
-                                          leaveFrom="opacity-100 translate-y-0"
-                                          leaveTo="opacity-0 translate-y-1"
-                                        >
-                                          <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-96 -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
-                                            <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                                              <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-1 xl:grid-cols-2">
-                                                {Units.map((item) => (
-                                                  <button
-                                                    onClick={
-                                                      !item.isSelected()
-                                                        ? handleUnitChange
-                                                        : null
-                                                    }
-                                                    key={item.name}
-                                                    className={`-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-200
+                                              aria-hidden="true"
+                                            />
+                                          </Popover.Button>
+                                          <Transition
+                                            as={Fragment}
+                                            enter="transition ease-out duration-200"
+                                            enterFrom="opacity-0 translate-y-1"
+                                            enterTo="opacity-100 translate-y-0"
+                                            leave="transition ease-in duration-150"
+                                            leaveFrom="opacity-100 translate-y-0"
+                                            leaveTo="opacity-0 translate-y-1"
+                                          >
+                                            <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-96 -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl">
+                                              <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                                                <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-1 xl:grid-cols-2">
+                                                  {Units.map((item) => (
+                                                    <button
+                                                      onClick={
+                                                        !item.isSelected()
+                                                          ? handleUnitChange
+                                                          : null
+                                                      }
+                                                      key={item.name}
+                                                      className={`-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-200
                                                     ${
                                                       item.isSelected()
                                                         ? "bg-gray-200"
                                                         : null
                                                     }
                                                     `}
-                                                  >
-                                                    <div
-                                                      className={`flex h-4 w-4 shrink-0 items-center justify-center sm:h-5 sm:w-5`}
                                                     >
-                                                      {item.isSelected() ? (
-                                                        <CheckCircleIcon></CheckCircleIcon>
-                                                      ) : null}
-                                                    </div>
-                                                    <div className="ml-4">
-                                                      <p className="text-sm font-medium text-gray-900">
-                                                        {item.name}
-                                                      </p>
-                                                    </div>
-                                                  </button>
-                                                ))}
+                                                      <div
+                                                        className={`flex h-4 w-4 shrink-0 items-center justify-center sm:h-5 sm:w-5`}
+                                                      >
+                                                        {item.isSelected() ? (
+                                                          <CheckCircleIcon></CheckCircleIcon>
+                                                        ) : null}
+                                                      </div>
+                                                      <div className="ml-4">
+                                                        <p className="text-sm font-medium text-gray-900">
+                                                          {item.name}
+                                                        </p>
+                                                      </div>
+                                                    </button>
+                                                  ))}
+                                                </div>
                                               </div>
-                                            </div>
-                                          </Popover.Panel>
-                                        </Transition>
-                                      </>
-                                    )}
-                                  </Popover>
-                                </Menu.Item>
+                                            </Popover.Panel>
+                                          </Transition>
+                                        </>
+                                      )}
+                                    </Popover>
+                                  </Menu.Item>
+                                ) : null}
                               </Menu.Items>
                             </Transition>
                           </div>
@@ -267,7 +263,10 @@ export default function Navbar() {
                     )}
                   </div>
                   <div className="lg:hidden -mr-2 flex items-center space-x-6">
-                    {email ? (
+                    {email &&
+                    (pathname === "/" ||
+                      pathname === "/home" ||
+                      pathname === "/dashboard") ? (
                       <Popover className="relative">
                         {({ open }) => (
                           <>
@@ -277,7 +276,10 @@ export default function Navbar() {
                   open ? "" : "text-opacity-90"
                 } group w-full inline-flex items-center text-gray-200 font-medium text-xs py-2 px-4 border border-white rounded hover:border-gray-400 duration-200`}
                             >
-                              <span>Units</span>
+                              <span>
+                                {units?.[0]?.toUpperCase() +
+                                  units?.substring(1)}
+                              </span>
                               <ChevronDownIcon
                                 className={`${open ? "" : "text-opacity-70"}
                   h-4 w-4 ml-1`}
@@ -293,7 +295,7 @@ export default function Navbar() {
                               leaveFrom="opacity-100 translate-y-0"
                               leaveTo="opacity-0 translate-y-1"
                             >
-                              <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-64 sm:w-72 -translate-x-1/2 transform px-4 sm:px-0">
+                              <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-64 max-w-lg sm:w-72 -translate-x-2/3 transform px-4 sm:px-0">
                                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                                   <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-1 xl:grid-cols-2">
                                     {Units.map((item) => (

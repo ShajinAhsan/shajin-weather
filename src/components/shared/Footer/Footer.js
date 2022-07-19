@@ -83,7 +83,7 @@ const Footer = () => {
               className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000
           group-hover:duration-200 animate-tilt"
             ></div>
-            <div className="relative bg-black rounded-lg leading-none flex items-center px-7 py-4 divide-x divide-gray-600">
+            <div className="relative bg-black rounded-lg leading-none flex items-center px-5 py-3 lg:px-7 lg:py-4 lg:divide-x divide-gray-600">
               <span className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +99,7 @@ const Footer = () => {
                     d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
                   />
                 </svg>
-                <span className="text-gray-100 group-hover:text-gray-100 transition duration-200 font-bold text-2xl pr-6">
+                <span className="text-gray-100 group-hover:text-gray-100 transition duration-200 font-bold text-xl lg:text-2xl pr-6">
                   shajinahsan
                 </span>
               </span>
@@ -107,7 +107,7 @@ const Footer = () => {
                 href="https://github.com/shajinahsan"
                 target={"_blank"}
                 rel="noreferrer"
-                className="pl-6 font-medium text-indigo-400 inline-flex"
+                className="pl-6 font-medium text-indigo-400 hidden lg:inline-flex "
               >
                 Follow{" "}
                 <svg
