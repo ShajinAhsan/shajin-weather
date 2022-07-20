@@ -1,14 +1,12 @@
 import {
-  faArrowAltCircleDown,
-  faArrowAltCircleUp,
-} from "@fortawesome/free-regular-svg-icons";
-import {
+  faCircleArrowDown,
+  faCircleArrowUp,
   faCloud,
   faDroplet,
   faGaugeHigh,
   faTemperatureArrowDown,
   faTemperatureArrowUp,
-  faWind,
+  faWind
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LocationMarkerIcon } from "@heroicons/react/outline";
@@ -44,9 +42,9 @@ const Dashboard = () => {
         case "standard":
           return "m/s";
         case "metric":
-          return "°m/s";
+          return "m/s";
         case "imperial":
-          return "°mi/h";
+          return "mi/h";
         default:
           return "m/s";
       }
@@ -117,16 +115,14 @@ const Dashboard = () => {
         <main className="container mx-auto my-12">
           <section className="space-y-10">
             <div
-              className={`sm:rounded-md lg:rounded-lg py-14 flex justify-center relative ${
-                sunrise < dt && dt < sunset ? "bg-dayTime" : "bg-nightTime"
-              }`}
+              className={`sm:rounded-md lg:rounded-lg py-14 flex justify-center relative ${sunrise < dt && dt < sunset ? "bg-dayTime" : "bg-nightTime"
+                }`}
             >
               <span
-                className={`absolute top-2 left-2 px-4 py-2 rounded-full inline-flex items-center space-x-1 text-sm sm:text-base font-medium ${
-                  sunrise < dt && dt < sunset
+                className={`absolute top-2 left-2 px-4 py-2 rounded-full inline-flex items-center space-x-1 text-sm sm:text-base font-medium ${sunrise < dt && dt < sunset
                     ? "bg-white text-black"
                     : "bg-black text-white"
-                }`}
+                  }`}
               >
                 <LocationMarkerIcon className="w-4 sm:w-5" />
                 <span>
@@ -134,11 +130,10 @@ const Dashboard = () => {
                 </span>
               </span>
               <div
-                className={`inline-flex flex-col bg-opacity-60 rounded-md py-4 px-7 ${
-                  sunrise < dt && dt < sunset
+                className={`inline-flex flex-col bg-opacity-60 rounded-md py-4 px-7 ${sunrise < dt && dt < sunset
                     ? " bg-white text-black"
                     : "bg-black text-white"
-                }`}
+                  }`}
               >
                 <span className="text-6xl md:text-6xl lg:text-8xl font-bold">
                   {Math.round(temp)}
@@ -153,80 +148,127 @@ const Dashboard = () => {
             <div className="grid md:grid-cols-2 gap-10">
               <div className="bg-black sm:rounded-md lg:rounded-lg p-6 md:p-10 grid grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faWind} className="" />
-                    <p>
-                      {speed}
-                      {whichUnit("speed")}
-                    </p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faWind}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">
+                        {speed}
+                        {whichUnit("speed")}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-white text-xs opacity-70">-Wind Speed</p>
+                  <p className="text-white text-xs opacity-70">-Wind speed</p>
                 </div>
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faDroplet} className="" />
-                    <p>{humidity}%</p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faDroplet}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">{humidity}%</p>
+                    </div>
                   </div>
                   <p className="text-white text-xs opacity-70">-Humidity</p>
                 </div>
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faCloud} className="" />
-                    <p>{all}%</p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faCloud}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">{all}%</p>
+                    </div>
                   </div>
                   <p className="text-white text-xs opacity-70">-Cloudiness</p>
                 </div>
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faGaugeHigh} className="" />
-                    <p>{pressure}hPa</p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faGaugeHigh}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">{pressure}hPa</p>
+                    </div>
                   </div>
-                  <p className="text-white text-xs opacity-70">-Pressure</p>
+                  <p className="text-white text-xs opacity-70">
+                    -Atmospheric pressure
+                  </p>
                 </div>
               </div>
               <div className="bg-black sm:rounded-md lg:rounded-lg p-6 md:p-10 grid grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faTemperatureArrowUp} className="" />
-                    <p>
-                      {temp_max}
-                      {whichUnit("temp")}
-                    </p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faTemperatureArrowUp}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">
+                        {temp_max}
+                        {whichUnit("temp")}
+                      </p>
+                    </div>
                   </div>
                   <p className="text-white text-xs opacity-70">-Temp max</p>
                 </div>
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon
-                      icon={faTemperatureArrowDown}
-                      className=""
-                    />
-                    <p>
-                      {temp_min}
-                      {whichUnit("temp")}
-                    </p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faTemperatureArrowDown}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">
+                        {temp_min}
+                        {whichUnit("temp")}
+                      </p>
+                    </div>
                   </div>
                   <p className="text-white text-xs opacity-70">-Temp min</p>
                 </div>
                 <div className="inline-flex flex-col gap-y-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faArrowAltCircleUp} className="" />
-                    <p>
-                      {UnixTimeConverter(sunrise).formated_hour}:
-                      {UnixTimeConverter(sunrise).minutes}{" "}
-                      {UnixTimeConverter(sunrise).ampm}
-                    </p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faCircleArrowUp}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">
+                        {UnixTimeConverter(sunrise).formated_hour}:
+                        {UnixTimeConverter(sunrise).minutes}{" "}
+                        {UnixTimeConverter(sunrise).ampm}
+                      </p>
+                    </div>
                   </div>
                   <p className="text-white text-xs opacity-70">-Sunrise</p>
                 </div>
                 <div className="inline-flex flex-col gap-y-1 -col-end-1">
-                  <div className="inline-flex bg-white items-center gap-2 px-4 py-2 rounded-full">
-                    <FontAwesomeIcon icon={faArrowAltCircleDown} className="" />
-                    <p>
-                      {UnixTimeConverter(sunset).formated_hour}:
-                      {UnixTimeConverter(sunset).minutes}{" "}
-                      {UnixTimeConverter(sunset).ampm}
-                    </p>
+                  <div className="relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 sm:rounded-md lg:rounded-lg blur-lg opacity-30"></div>
+                    <div className="relative flex items-center gap-2 bg-black rounded-full px-4 py-2">
+                      <FontAwesomeIcon
+                        icon={faCircleArrowDown}
+                        className="text-pink-600"
+                      />
+                      <p className="text-white">
+                        {UnixTimeConverter(sunset).formated_hour}:
+                        {UnixTimeConverter(sunset).minutes}{" "}
+                        {UnixTimeConverter(sunset).ampm}
+                      </p>
+                    </div>
                   </div>
                   <p className="text-white text-xs opacity-70">-Sunset</p>
                 </div>

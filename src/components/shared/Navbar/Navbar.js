@@ -100,27 +100,27 @@ export default function Navbar() {
                       <div className="ml-10 flex items-baseline space-x-4">
                         {email
                           ? navigation.map((item) => (
-                              <NavLink
-                                exact
-                                key={item.name}
-                                to={item.to}
-                                className={classes.usualStyle}
-                                activeClassName={classes.activeStyle}
-                              >
-                                {item.name}
-                              </NavLink>
-                            ))
+                            <NavLink
+                              exact
+                              key={item.name}
+                              to={item.to}
+                              className={classes.usualStyle}
+                              activeClassName={classes.activeStyle}
+                            >
+                              {item.name}
+                            </NavLink>
+                          ))
                           : navigation_bak.map((item) => (
-                              <NavLink
-                                exact
-                                key={item.name}
-                                to={item.to}
-                                className={classes.usualStyle}
-                                activeClassName={classes.activeStyle}
-                              >
-                                {item.name}
-                              </NavLink>
-                            ))}
+                            <NavLink
+                              exact
+                              key={item.name}
+                              to={item.to}
+                              className={classes.usualStyle}
+                              activeClassName={classes.activeStyle}
+                            >
+                              {item.name}
+                            </NavLink>
+                          ))}
                       </div>
                     </div>
                   </div>
@@ -162,23 +162,21 @@ export default function Navbar() {
                                   </button>
                                 </Menu.Item>
                                 {pathname === "/" ||
-                                pathname === "/home" ||
-                                pathname === "/dashboard" ? (
+                                  pathname === "/home" ||
+                                  pathname === "/dashboard" ? (
                                   <Menu.Item className="block text-sm text-gray-700 hover:text-gray-800 hover:bg-gray-300 w-full text-left">
                                     <Popover className="relative">
                                       {({ open }) => (
                                         <>
                                           <Popover.Button
                                             className={`
-                ${
-                  open ? "" : "text-opacity-90"
-                } group w-full inline-flex items-center px-4 py-2`}
+                ${open ? "" : "text-opacity-90"
+                                              } group w-full inline-flex items-center px-4 py-2`}
                                           >
                                             <span>Units</span>
                                             <ChevronDownIcon
-                                              className={`${
-                                                open ? "" : "text-opacity-70"
-                                              }
+                                              className={`${open ? "" : "text-opacity-70"
+                                                }
                   h-4 w-4 ml-1`}
                                               aria-hidden="true"
                                             />
@@ -204,11 +202,10 @@ export default function Navbar() {
                                                       }
                                                       key={item.name}
                                                       className={`-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-200
-                                                    ${
-                                                      item.isSelected()
-                                                        ? "bg-gray-200"
-                                                        : null
-                                                    }
+                                                    ${item.isSelected()
+                                                          ? "bg-gray-200"
+                                                          : null
+                                                        }
                                                     `}
                                                     >
                                                       <div
@@ -264,21 +261,20 @@ export default function Navbar() {
                   </div>
                   <div className="lg:hidden -mr-2 flex items-center space-x-6">
                     {email &&
-                    (pathname === "/" ||
-                      pathname === "/home" ||
-                      pathname === "/dashboard") ? (
+                      (pathname === "/" ||
+                        pathname === "/home" ||
+                        pathname === "/dashboard") ? (
                       <Popover className="relative">
                         {({ open }) => (
                           <>
                             <Popover.Button
                               className={`
-                ${
-                  open ? "" : "text-opacity-90"
-                } group w-full inline-flex items-center text-gray-200 font-medium text-xs py-2 px-4 border border-white rounded hover:border-gray-400 duration-200`}
+                ${open ? "" : "text-opacity-90"
+                                } group w-full inline-flex items-center text-gray-200 font-medium text-xs py-2 px-4 border border-white rounded hover:border-gray-400 duration-200`}
                             >
                               <span>
                                 {units?.[0]?.toUpperCase() +
-                                  units?.substring(1)}
+                                  units?.substring(1) || "Unknown"}
                               </span>
                               <ChevronDownIcon
                                 className={`${open ? "" : "text-opacity-70"}
@@ -307,11 +303,10 @@ export default function Navbar() {
                                         }
                                         key={item.name}
                                         className={`-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-200
-                                                    ${
-                                                      item.isSelected()
-                                                        ? "bg-gray-200"
-                                                        : null
-                                                    }
+                                                    ${item.isSelected()
+                                            ? "bg-gray-200"
+                                            : null
+                                          }
                                                     `}
                                       >
                                         <div
@@ -359,27 +354,27 @@ export default function Navbar() {
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                   {email
                     ? navigation.map((item) => (
-                        <NavLink
-                          key={item.name}
-                          to={item.to}
-                          exact
-                          className={classes.m_usualStyle}
-                          activeClassName={classes.m_activeStyle}
-                        >
-                          {item.name}
-                        </NavLink>
-                      ))
+                      <NavLink
+                        key={item.name}
+                        to={item.to}
+                        exact
+                        className={classes.m_usualStyle}
+                        activeClassName={classes.m_activeStyle}
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))
                     : navigation_bak.map((item) => (
-                        <NavLink
-                          key={item.name}
-                          to={item.to}
-                          exact
-                          className={classes.m_usualStyle}
-                          activeClassName={classes.m_activeStyle}
-                        >
-                          {item.name}
-                        </NavLink>
-                      ))}
+                      <NavLink
+                        key={item.name}
+                        to={item.to}
+                        exact
+                        className={classes.m_usualStyle}
+                        activeClassName={classes.m_activeStyle}
+                      >
+                        {item.name}
+                      </NavLink>
+                    ))}
                 </div>
                 <div className="pt-4 pb-3 border-t border-gray-700">
                   {email && (

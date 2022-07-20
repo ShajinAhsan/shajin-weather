@@ -1,8 +1,8 @@
 .bg-dayTime {
-  background-image: url("../../../images/day.jpg");
+  background-image: url("../../../../images/day.jpg");
   background-size: cover;
 }
 .bg-nightTime {
-  background-image: url("../../../images/night.jpg");
+  background-image: url("../../../../images/night.jpg");
   background-size: cover;
 }
